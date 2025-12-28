@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(24, 24, 24, 1), rgba(0, 0, 0, 1));
+}
+
+.grid-fade {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask: radial-gradient(circle at center, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+}
+
+.card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-sheen::before {
+  content: "";
+  position: absolute;
+  inset: -150% 0 auto;
+  width: 50%;
+  transform: rotate(25deg);
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: sheen 8s linear infinite;
+}
+
+@keyframes sheen {
+  from {
+    transform: translateX(-200%) rotate(25deg);
+  }
+  to {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
